@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class HumanPlayerImpl implements Player {
 
     @Override
-    public byte makeMove() {
+    public int makeMove() {
         try {
             return new Scanner(System.in).nextByte();
         } catch (InputMismatchException e) {

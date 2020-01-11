@@ -1,19 +1,19 @@
 package com.epam.players;
 
 public class ComputerPlayerImpl implements Player {
-    private byte numberOfMatchesPlayerTookLastTime;
-    private static final byte MAX_MATCHES_PER_ROUND = 4;
+    private int numberOfMatchesPlayerTookLastTime;
+    private static final int MAX_MATCHES_PER_ROUND = 4;
 
-    public ComputerPlayerImpl(byte numberOfMatchesPlayerTookLastTime) {
+    public ComputerPlayerImpl(int numberOfMatchesPlayerTookLastTime) {
         this.numberOfMatchesPlayerTookLastTime = numberOfMatchesPlayerTookLastTime;
     }
 
-    public void setNumberOfMatchesPlayerTookLastTime(byte numberOfMatchesPlayerTookLastTime) {
+    public void setNumberOfMatchesPlayerTookLastTime(int numberOfMatchesPlayerTookLastTime) {
         this.numberOfMatchesPlayerTookLastTime = numberOfMatchesPlayerTookLastTime;
     }
 
     @Override
-    public byte makeMove() {
-        return (byte) (MAX_MATCHES_PER_ROUND - numberOfMatchesPlayerTookLastTime);
+    public int makeMove() {
+        return MAX_MATCHES_PER_ROUND - numberOfMatchesPlayerTookLastTime;
     }
 }

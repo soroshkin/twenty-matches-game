@@ -2,7 +2,11 @@ package com.epam;
 
 public class ConsoleHelper {
 
-    public static void printNumberOfMatchesLeft(byte mathesLeft) {
+    public static void printStartGame(){
+        System.out.println("Добро пожаловать! Игра начинается!");
+    }
+
+    public static void printNumberOfMatchesLeft(int mathesLeft) {
         System.out.printf("На столе осталось %d спичек.%n", mathesLeft);
     }
 
@@ -10,7 +14,7 @@ public class ConsoleHelper {
         System.out.print("- Ход игрока. Введите количество спичек: ");
     }
 
-    public static void printNumberOfMathesComputerTook(byte matchesTaken) {
+    public static void printNumberOfMathesComputerTook(int matchesTaken) {
         System.out.printf("- Количество выбранных компьютером спичек = %d%n", matchesTaken);
     }
 
