@@ -2,12 +2,12 @@ package com.epam;
 
 public class ConsoleHelper {
 
-    public static void printStartGame(){
+    public static void printStartGame() {
         System.out.println("Добро пожаловать! Игра начинается!");
     }
 
     public static void printNumberOfMatchesLeft(int mathesLeft) {
-        System.out.printf("На столе осталось %d спичек.%n", mathesLeft);
+        System.out.printf("На столе осталось %d %s.%n", mathesLeft, mathesLeft < 5 ? "спички" : "спичек");
     }
 
     public static void printTakeMatches() {
