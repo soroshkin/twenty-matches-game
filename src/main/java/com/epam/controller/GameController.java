@@ -11,14 +11,14 @@ public class GameController {
     private static final int MAX_MATCHES_CAN_TAKE = 3;
 
     private int matchesLeft;
-    private int matchesPlayerTookLastTime;
+    private int numberOfMatchesPlayerTookLastTime;
     private Player nextPlayer;
     private Player computerPlayer;
     private Player humanPlayer;
 
     public GameController() {
         this.matchesLeft = 20;
-        this.matchesPlayerTookLastTime = 1;
+        this.numberOfMatchesPlayerTookLastTime = 1;
         this.nextPlayer = new ComputerPlayerImpl(1);
         this.computerPlayer = this.nextPlayer;
         this.humanPlayer = new HumanPlayerImpl();
@@ -34,25 +34,25 @@ public class GameController {
     }
 
     public int computerMove() {
-        matchesPlayerTookLastTime = nextPlayer.makeMove();
-        ConsoleHelper.printNumberOfMathesComputerTook(matchesPlayerTookLastTime);
+        numberOfMatchesPlayerTookLastTime = nextPlayer.makeMove();
+        ConsoleHelper.printNumberOfMathesComputerTook(numberOfMatchesPlayerTookLastTime);
         nextPlayer = humanPlayer;
-        return matchesPlayerTookLastTime;
+        return numberOfMatchesPlayerTookLastTime;
     }
 
     public int humanMove() {
         ConsoleHelper.printTakeMatches();
-        matchesPlayerTookLastTime = nextPlayer.makeMove();
+        numberOfMatchesPlayerTookLastTime = nextPlayer.makeMove();
 
-        if (matchesPlayerTookLastTime >= MIN_MATCHES_CAN_TAKE && matchesPlayerTookLastTime <= MAX_MATCHES_CAN_TAKE) {
+        if (numberOfMatchesPlayerTookLastTime >= MIN_MATCHES_CAN_TAKE && numberOfMatchesPlayerTookLastTime <= MAX_MATCHES_CAN_TAKE) {
             nextPlayer = computerPlayer;
-            ((ComputerPlayerImpl) nextPlayer).setNumberOfMatchesPlayerTookLastTime(matchesPlayerTookLastTime);
+            ((ComputerPlayerImpl) nextPlayer).setNumberOfMatchesPlayerTookLastTime(numberOfMatchesPlayerTookLastTime);
         } else {
             ConsoleHelper.incorrectNumberOfMatches();
-            matchesPlayerTookLastTime = 0;
+            numberOfMatchesPlayerTookLastTime = 0;
         }
 
-        return matchesPlayerTookLastTime;
+        return numberOfMatchesPlayerTookLastTime;
     }
 
     public boolean isHumanPlayerLost() {

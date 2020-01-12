@@ -8,7 +8,7 @@ public class HumanPlayerImpl implements Player {
     @Override
     public int makeMove() {
         try {
-            return new Scanner(System.in).nextByte();
+            return new Scanner(System.in).nextInt();
         } catch (InputMismatchException e) {
             return 0;
         }
